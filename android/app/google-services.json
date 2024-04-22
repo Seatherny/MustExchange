@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939427814937",
+    "project_id": "mustex-110ae",
+    "storage_bucket": "mustex-110ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939427814937:android:1834c2a3b7dfbbc98f1488",
+        "android_client_info": {
+          "package_name": "com.example.mustexchange"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVAWRqTFKnuxeuTFDxSpu1nAoDoyKHTMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
