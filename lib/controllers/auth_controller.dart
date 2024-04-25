@@ -43,7 +43,7 @@ class AuthController extends GetxController {
         'lat': double.parse(latitude.value),
         'lon': double.parse(longitude.value),
         'street': streetname.value,
-        'profilepic': "/Users/idckgaf/Downloads/boyyyyyy.jpg"
+        'profilepic': "https://img.freepik.com/premium-photo/cute-handsome-anime-boy-blue-light_675932-435.jpg"
       });
       Get.back();
     } catch (e) {
@@ -61,7 +61,7 @@ class AuthController extends GetxController {
     }
   }
 
-  signout() {}
+
 
   getlocation() async {
     bool serviceEnabled;

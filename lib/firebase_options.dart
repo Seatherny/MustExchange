@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'mustex-110ae.appspot.com',
     measurementId: 'G-MSK1D4X8GJ',
   );
+
 }

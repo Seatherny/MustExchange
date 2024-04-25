@@ -19,7 +19,14 @@ class Loginscreen extends GetWidget<AuthController> {
         title: Text("Sign in",style: myStyle(20, Colors.white, FontWeight.w700),
         ),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/Mody-1.jpg"),
+            fit: BoxFit.cover
+          )
+        ),
+        child: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -125,6 +132,7 @@ class Loginscreen extends GetWidget<AuthController> {
             ],
           ),
         ),
+      ),
       )
     );
   }
