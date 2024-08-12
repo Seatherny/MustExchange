@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mustexchange/utils/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mustexchange/utils/variables.dart';
+import 'package:uuid/uuid.dart';
 
 
 class Database {
@@ -38,10 +39,72 @@ class Database {
       "content": content,
       "time": DateTime.now()
     });
+  }
 
+  //chats
+  sendmessage(recieveruid, message) {
+    String messageid = const Uuid().v1();
+    DateTime timesent = DateTime.now();
+    usercollection.doc(auth!.uid).collection('chats').doc(recieveruid).set({
+      'messageid': messageid,
+      'lastmessage': message,
+      'timesent': timesent,
+    });
 
+    usercollection
+        .doc(auth!.uid)
+        .collection('chats')
+        .doc(recieveruid)
+        .collection('messages')
+        .doc(messageid)
+        .set({
+      'messageid': messageid,
+      'senderid': auth!.uid,
+      'recieveruid': recieveruid,
+      'message': message,
+      'timesent': DateTime.now()
+    });
+
+    usercollection.doc(recieveruid).collection('chats').doc(auth!.uid).set({
+      'messageid': messageid,
+      'lastmessage': message,
+      'timesent': timesent,
+    });
+
+    usercollection
+        .doc(recieveruid)
+        .collection('chats')
+        .doc(auth!.uid)
+        .collection('messages')
+        .doc(messageid)
+        .set({
+      'messageid': messageid,
+      'senderid': auth!.uid,
+      'recieveruid': recieveruid,
+      'message': message,
+      'timesent': DateTime.now()
+    });
+  }
+
+  deletemessage(String id, String recieveruid) {
+    usercollection
+        .doc(auth!.uid)
+        .collection('chats')
+        .doc(recieveruid)
+        .collection('messages')
+        .doc(id)
+        .delete();
+
+    usercollection
+        .doc(recieveruid)
+        .collection('chats')
+        .doc(auth!.uid)
+        .collection('messages')
+        .doc(id)
+        .delete();
   }
 }
+
 
 
 
